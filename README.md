@@ -1,2 +1,2 @@
 # Neetcode
-Practicing Needcode
+Practicing Neetcode

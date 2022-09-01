@@ -1,2 +1,3 @@
-# Neetcode
-Practicing Neetcode
+# Neetcode Practice - Pseudocode & Strategies
+
+

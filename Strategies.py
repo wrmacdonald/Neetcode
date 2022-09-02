@@ -64,8 +64,46 @@
         #       update postfix *= nums[i]
         # return the result arr
 
-...
 
+
+# 🔲 --- Two Pointers ---
+
+# - Valid Palindrome - 🟢
+# 2 Pointer soln:
+        # 2 pointers: left = 0, right @ end
+        # move pointers towards each other until they meet/pass
+        # move each on if not alphaNum()
+        # then compare letter.lower() @ each step
+        # return True if pointers meet/pass
+# Easy Soln:
+        # make new string with only valid, lowercase letters, 
+        # compare it to its reversed slice string[::-1]
+
+
+
+# 🔲 --- Sliding Window ---
+
+# - Best Time to Buy & Sell Stock - 🟢
+# Sliding Window Soln:
+        # create 2 pointers to indexes: left = 0 & right = 1,
+        # left will be updated to new min whenever it's found
+        # create max_profit var to hold max profit found so far
+        # while r < len(prices), iterate r through prices list
+        # update max profit, with prices[r] - prices[l]
+        # check if r pointer found a new min, update l if so
+        # move r through list
+        # return max_profit
+
+# - Longest SubString Without Repeating Characters - 🟠
+# Sliding Window Soln:
+        # create set to keep track of letters in substring
+        # create result var for tracking longest length
+        # 2 pointers for sliding substring, l & r
+        # iterate through s, using r,
+        # if s[r] is a duplicate (in the set):
+        # remove s[l] from set until removed dup
+        # then add s[r] to the set & update result with max len
+        # return result
 
 
 
@@ -172,6 +210,19 @@
         # decision TO add nums[i] 
         # decision NOT TO add nums[i]
         # return result array
+
+# - Combination Sum - 🟠
+# Backtracking Soln:
+        # Decision: add element or not
+        # create result array to hold each found combination
+        # create dfs func to call with (index, curr_combo, curr_total)
+        # BC1: reach solution - append copy of curr to result
+        # BC2: curr pass target or reach end of list: exit
+        # Decision: Add num, & recursively call dfs
+        # Decision: Don't add num, & recursively call dfs
+        # return result array
+
+
 
 
 

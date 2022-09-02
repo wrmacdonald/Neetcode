@@ -64,6 +64,38 @@
         #       update postfix *= nums[i]
         # return the result arr
 
+# - Valid Sudoku - 🟠
+# HashMap Soln:
+        # create col, row, & square, hashMaps 
+        # use collections.defaultdict, eg: row #: set of nums in row
+        # iterate through row & iterate through col
+        # if empty space, skip
+        # otherwise check if already in row, col, & square: if so: return False
+        # otherwise: add it to the row, col, & square
+        # reach end without dups found: return True
+
+# - Encode & Decode Strings - 🟠
+# Array Soln:
+        # create one string to hold all strings, with separators & lengths
+        # encode: loop through srings, adding str length + a separator(#) + str
+        # decode: create result array to hold strings, i to hold length
+        # iterate through combined string,
+        # get length from string (up to separator), skip sep
+        # get the string using curr_position + length
+        # append it to result array & repeat
+        # return result array
+
+# - Longest Consecutive Sequence - 🟠
+# Set Soln:
+        # create a set to hold all nums without dups & lookup quickly
+        # create var to hold longest_seq found so far
+        # iterate through nums: if (num - 1) is not in set, 
+        # then it's the start of a sequence, of at least length 1
+        # check length of the sequence using num + len 
+        # save length if it's new max
+        # @ end, return longest_seq
+
+
 
 
 # 🔲 --- Two Pointers ---
@@ -82,6 +114,10 @@
 
 
 # 🔲 --- Sliding Window ---
+        # Ask: Move window (fixed or dynamic size), 
+        # each time asking, Is this the best I can do?
+        # Expand window right as much as poss, when can't anymore
+        # shrink from left until valid, then expand from right again
 
 # - Best Time to Buy & Sell Stock - 🟢
 # Sliding Window Soln:
@@ -103,6 +139,18 @@
         # if s[r] is a duplicate (in the set):
         # remove s[l] from set until removed dup
         # then add s[r] to the set & update result with max len
+        # return result
+
+# - Longest Repeating Character Replacement - 🟠
+# Sliding Window Soln:
+        # create letter count hashMap
+        # create result var to keep track of longest substring found
+        # create sliding window, l & r = 0
+        # update letter count with letter at s[r]
+        # check whether window is valid with:
+        # calc window length - most freq char = replacements needed > k
+        # while not: move l on and remove s[l] from count
+        # if so: update result to max window length
         # return result
 
 

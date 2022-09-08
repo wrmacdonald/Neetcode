@@ -2,6 +2,7 @@
 # Difficulty: Easy = 🟢, Medium = 🟠, Hard = 🔴
 
 
+
 # 🔲 --- Arrays & Hashing ---
 
 # - Contains Duplicate - 🟢
@@ -97,7 +98,6 @@
 
 
 
-
 # 🔲 --- Two Pointers ---
 
 # - Valid Palindrome - 🟢
@@ -152,6 +152,50 @@
         # while not: move l on and remove s[l] from count
         # if so: update result to max window length
         # return result
+
+# - Permutation in String - 🟠
+# Sliding Window of Fixed Size Soln:
+        # same chars from s1 in same length window of s2
+        # create hashMap of letter counts from s1, won't change
+        # create hashMap of letter counts from s2[window], will update as shifts down
+        # l = 0, r = range(len(s1), len(s2))
+        # while window shifts down (as r moves(and l incremented as well))
+        # compare the hashmaps first: return True if match
+        # remove l element from hashmap, add r element to hashmap
+        # compare one last time, & return False
+
+
+
+# 🔲 --- Stack ---
+
+# - Valid Parentheses - 🟢
+# Stack & HashMap soln:
+        # use a stack (just an array, append & pop) to hold history of open parens
+        # use hashMap to define close paren match to open paren
+        # iterate through s, appending any open parens to stack
+        # when reach close paren, pop off top of stack, & make sure it matches
+        # ensure the stack is not empty before trying pop
+        # if they don't match: return False, otherwise, move on
+        # @ end of string, return whether stack is empty
+
+# - Min Stack - 🟠
+# Stack Soln:
+        # implement stack with an array
+        # for tracking min in O(1) time, implement a 2nd stack tracking min @ each point
+        # push & pop to min stack along with actual stack, always know min @ curr point
+        # with each push, compare top of min_stack with val & save min()
+
+# - Evaluate Reverse Polish Notation - 🟠
+# Stack Soln:
+        # implement stack with an array
+        # iterate through tokens:
+        # conditionally: 5 checks, whether curr_tok == +, -, *, /, else num
+        # if +: pop top 2 nums, add them, append result
+        # if -: pop top 2 nums (a, b), subtract b-a, append result
+        # if *: pop top 2 nums, mult them, append result
+        # if /: pop top 2 nums (a, b), divide b/a, round down using int(), append result
+        # else: (if num) append the int
+        # return only remaining elem in stack
 
 
 

@@ -197,6 +197,30 @@
         # else: (if num) append the int
         # return only remaining elem in stack
 
+# - Generate Parentheses - 🟠
+# Stack Soln:
+        # rule 1: only add open p. if open_count < n
+        # rule 2: only add closing p. if close_count < open_count
+        # done when: open_count == close_count == n
+        # create a stack [] to add parens to build up solutions
+        # create a result array to hold found solutions
+        # define recursive func, take in open_count & close_count
+        # check if valid combo, if so, add to result & return out
+        # if open_c < n: add ( to stack, call recursive func with open_count++
+        # if close_c < open_c: add ) to stack, call recur_func with close_count++
+        # start recursive call with 0,0
+        # return result
+
+# - Daily Temperatures - 🟠
+# Stack Soln:
+        # create a result array, same len as temps, all 0s
+        # create a stack, to hold arrays with: [temp, index]
+        # iterate through temps, comparare to temp on top of stack
+        # if temp greater than top: pop, save index diff (curr-stack) to result,
+        # then add current [temp, index] to top of stack, move on
+        # if less, also add [t, i] to top of stack, move on
+        # when get to end, return result array
+
 
 
 # 🔲 --- Linked List ---

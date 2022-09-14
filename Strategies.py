@@ -221,6 +221,34 @@
         # if less, also add [t, i] to top of stack, move on
         # when get to end, return result array
 
+# - Car Fleet - 🟠
+# Stack Soln:
+        # create stack to hold car fleets
+        # create array of cars, each w/ their [pos, speed]
+        # sort array of cars by their position, in reverse order (start <- dest)
+        # iterate through cars, calc time it takes for car to reach dest = (targ-p)/s
+        # add to stack, if more than 2 cars in stack, compare them
+        # if new car (top of stack) faster than car below it, pop top (will be 1 fleet)
+        # return length of the stack, # of car fleets
+
+
+
+# 🔲 --- Binary Search ---
+
+# - Binary Search - 🟢
+        # two pointers (L=0, R=end)
+        # continue while L <= R, calc middle (L+R//2)
+        # if nums[middle] less than target: move L up to middle+1
+        # if nums[middle] greater than target: move R back to middle-1
+        # else: return nums[middle] because found target
+        # reach end looking through? return -1, did not find target
+
+# - Search a 2D Matrix - 🟠
+        # calc total_#_of_elems in matrix, and convert that to matrix row & col
+        # then binary search total_elems, using that conversion
+        # row = middle // row_len, col = middle % row_len
+
+
 
 
 # 🔲 --- Linked List ---

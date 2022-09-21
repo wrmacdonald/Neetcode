@@ -1,8 +1,6 @@
 # Question Type Header = 🔲
 # Difficulty: Easy = 🟢, Medium = 🟠, Hard = 🔴
 
-
-
 # 🔲 --- Arrays & Hashing ---
 
 # - Contains Duplicate - 🟢
@@ -248,6 +246,57 @@
         # then binary search total_elems, using that conversion
         # row = middle // row_len, col = middle % row_len
 
+# - Koko Eating Bananas - 🟠
+        # min rate would be k=1 per hour, max rate would be k=max(elem in piles) 
+        # need to find min k that satisfies time constraint in range [1...max_p]
+        # use binary search to check elems in that range
+        # binary search template:
+        # two pointers: L = 1, R = max(piles)
+        # while L less than R
+        # calc Middle = (L+R//2
+        # check if Middle is feasible
+        # if yes: move R back to mid
+        # if not: move L up to mid+1
+        # return L
+
+# - Search Rotated Sorted Array - 🟠
+# Binary Search soln:
+        # two pointers (L=0, R=end)
+        # continue while L <= R, calc middle (L+R//2)
+        # check if middle num == target
+        # check if in left-sorted section, with nums[l] <= nums[mid] eg: [4,-L-,7,0,-R-,3]
+        #  check if result on right side of mid, with t > nums[mid] or t < nums[l], move l pointer up
+        #  otherwise result on left side of mid, move r pointer down
+        # otherwise in right-sorted section, eg: [4,-L-,7,0,-R-,3]
+        #  check if result on left side of mid, with t < nums[mid] or t > nums[l], move r pointer down
+        #  otherwise result on right side of mid, move l pointer up
+
+# - Find Minimum in Rotated Sorted Array - 🟠
+# Binary Search soln:
+        # two pointers (L=0, R=end)
+        # create result var to hold temp_found_min
+        # continue while L <= R, calc middle (L+R//2)
+        # check if case section is sorted, if so, set result to min(result, nums[L]) & break
+        # otherwise, compare M elem to L elem, 
+        #   if M elem is smaller: on L side, move R to M - 1
+        #   if larger: on R side, move L to M + 1
+        # return result
+
+# - Time Based Key-Value Store - 🟠
+# Binary Search soln:
+        # Data Struct to hold data: HashMap with key: array of [timestamp, val]
+        # set method -
+        # if key not already added, add key: []
+        # append [timestamp, val] to HashMap[key]
+        # get method - 
+        # create res var, & get array of matching values
+        # binary search it for timestamp match or closest time less than timestamp
+        # two pointers (L=0, R=end)
+        # continue while L <= R, calc middle (L+R//2)
+        # check if middle time <= timestamp: 
+        #  if so: update result & check to Right for a closer time
+        #  if not: middle time is too large, check to the Left for a valid time
+        # return result
 
 
 
@@ -271,6 +320,27 @@
         # while elems in both, compare elems, add lesser to new_list
         # if elems in only one list, add the rest of it
         # return new_list, dummy.next
+
+# - Reorder List - 🟠
+# Tortice & Hare soln:  
+        # iterate a slow & fast pointer through LL to find the middle
+        # split the lists in half, with slow.next being start of second half list & end first list with = None 
+        # reverse second half of LL using prev = None & temp
+        # iterate through both lists, interlacing second half elems inbetween first half elems
+
+# - Remove Nth Node from End of List - 🟠
+# O(2n) Soln:
+        # get length of LL using a while loop to iterate through until end
+        # create dummy node to hold front of LL
+        # calc node_to_remove by length - n
+        # iterate through node_to_remove times, to get to node just before node_to_remove
+        # remove it by updating next ptr
+        # return dummy.next
+# 2 pointer Soln: 
+        # create dummy node
+        # 2 ptrs, L @ dummy, R @ head + n 
+        # iterate through until R reaches end of LL,
+        # then L will be just before node to remove, remove it, & return dummy.next
 
 # - Linked List Cycle - 🟢
 # BF Soln:

@@ -342,6 +342,27 @@
         # iterate through until R reaches end of LL,
         # then L will be just before node to remove, remove it, & return dummy.next
 
+# - Copy List with Random Pointer - 🟠
+# 2 pass soln w/ HashMap: 
+        # create HashMap to map old nodes to new nodes, also None: None
+        # 1st pass: move through old LL, making new node with just same val
+        #  add old Node: new Node in HashMap
+        # 2nd pass: move through old LL again, 
+        #  updating both pointers (next & random), using map to get matching new nodes
+        # return new head
+
+# - Add Two Numbers - 🟠
+        # create dummy node to point to start of our answer LL
+        # create a carry var, starting @ 0
+        # continue while l1, l2, & carry
+        # get vals from each ll, if not use 0
+        # calc answer_val = v1 + v2 + carry
+        # update carry with int division by 10
+        # update answer_val with mod by 10
+        # save answer_val into answer LL
+        # update pointers to move on LLs
+        # return head of our answer LL
+
 # - Linked List Cycle - 🟢
 # BF Soln:
         # make hashSet to hold nodes
@@ -354,6 +375,23 @@
         # go though LL, incrementing slow by 1 & fast by 2,
         # if fast ever meets slow, return True, there's a cycle
         # otherwise, if fast reaches None, return False
+
+# - Find the Duplicate Number - 🟠
+        # With only using constant extra space (with linear space use a Hashmap)
+        # imagine the array values are LL pointers, the duplicate num will create a cycle
+        # create a slow & fast pointer, when they meet, found cycle, use Floyds Algo to find dup
+        # leave slow ptr where it is, discard fast, create a slow2 ptw @ the begining,
+        # move slow & slow2 through +1 until they meet, that's the dup
+
+# - LRU Cache - 🟠
+        # setup a cache to map keys to nodes
+        # setup doubly LL with nodes to keep track of LRU=left & MostRecentlyUsed=right
+        # helper functions: remove node & insert node @ right (MRU)
+        # get: check if key exists: if so return val & update node to MRU (del & insert)
+        #  else: return -1
+        # put: check if key exists, if so remove it before adding new val
+        #  insert new key & new node into LL
+        #  check if exceeds capacity: if so: remove LRU (left) by removing node from LL & deleting from cache
 
 
 

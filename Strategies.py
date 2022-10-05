@@ -464,6 +464,16 @@
         # call sameTree with root & subRoot, if True: return True
         # recurse with root.left & subRoot and root.right & subRoot, return True if either returns True
 
+# - Lowest Common Ancestor of a Binary Search Tree - 🟢
+# Recursive Soln:
+        # use that root is common ancestor of all nodes in BST, start there
+        # the LCA is where p & q split into L & R subtrees (smaller & larger than curr)
+        # start curr pointing to root node
+        # loop: 
+        #  moving curr left if both p & q are > curr
+        #  moving curr right if both p & q are < curr
+        #  else: return curr, have found split
+
 
 
 # 🔲 --- Heap / Priority Queue ---

@@ -422,10 +422,47 @@
 
 # - Diameter of a Binary Tree - 🟢
 # Recursive Soln:
-        # create global result to keep track of max diameter
-        # create dfs() func that updates max diameter &
-        # returns max height of left & right subtrees
+        # create global diam_result to keep track of max diameter
+        # create dfs() func, passing in a node to explore
+        # BC: if null node, return height of -1
+        # find height of root.left & root.right
+        # find diameter @ current node, (2 + l_height + r_height)
+        # update diam_result if it's greater
+        # returns max height of left & right subtrees (1 + max(l, r))
         # call dfs with root & then return max_diameter
+
+# - Balanced Binary Tree - 🟢
+# Recursive Soln:
+        # Traverse all the way down, dfs, checking if_balanced from bottom up
+        # return [balanced bool, height of each node] up to the parent
+        # create dfs(root) func,
+        # BC: if null node, return [True bool, 0 height]
+        # call dfs on left & right subtrees of root
+        # check if subtrees are balanced with abs & each bool
+        # return [balanced bool, 1 + max(l & r heights)]
+        # return dfs(root) bool
+
+# - Same Tree - 🟢
+# Recursive Soln:
+        # BCs - check both root nodes
+        #  first check if both nodes don't exist: return True
+        #  check if one exists & other doesn't: return False
+        #  check if values aren't equal: return False
+        # Recurse - recurse on L & R subtrees
+        #  returning the "and" of the returns from L & R subtrees
+
+# - Subtree of Another Tree - 🟢
+# Recursive Soln:
+        # create a helper func to compare whether sameTree
+        #  BC: compare root nodes
+        #   if both Null: return True
+        #   if one Null & one not Null: return False
+        #   if values are different: return False
+        #  Recurse on left & right, return True if both return True, else False
+        # BC: if subRoot is Null: return True
+        #  if root is Null: return False
+        # call sameTree with root & subRoot, if True: return True
+        # recurse with root.left & subRoot and root.right & subRoot, return True if either returns True
 
 
 

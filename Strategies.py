@@ -436,10 +436,10 @@
         # Traverse all the way down, dfs, checking if_balanced from bottom up
         # return [balanced bool, height of each node] up to the parent
         # create dfs(root) func,
-        # BC: if null node, return [True bool, 0 height]
-        # call dfs on left & right subtrees of root
-        # check if subtrees are balanced with abs & each bool
-        # return [balanced bool, 1 + max(l & r heights)]
+        #  BC: if null node, return [True, 0 height]
+        #  call dfs on left & right subtrees of root
+        #  balanced bool = check if subtrees are balanced with abs height cals & all children balanced bools
+        #  return [balanced bool, 1 + max(l & r heights)]
         # return dfs(root) bool
 
 # - Same Tree - 🟢
@@ -494,6 +494,16 @@
         #   popping off each elem, add any children of theirs
         #   once reach last elem on that level (rightmost), add val to list
         # return result list
+
+# - Count Good Nodes in Binary Tree - 🟠
+# Recursive DFS Soln:
+        # define a dfs func, takes (node, maxValInPath)
+        #  BC: if empty node, return 0, no good nodes
+        #  create result var, set to 1 if node.va greater than maxVal, else 0
+        #  maybe update maxVal if node.val is greater
+        #  explore children, adding their return val to res
+        #  return res
+        # call dfs with root & root.val
 
 
 

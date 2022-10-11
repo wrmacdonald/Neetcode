@@ -399,10 +399,10 @@
 
 # - Invert Binary Tree - 🟢
 # Recursive Soln:
-        # dfs, recursively swapping left & right 
+        # DFS, recursively swapping left & right 
         # BC: if reach None: return None
         # swap root's left & right nodes
-        # recurse on left side, then right side, then return root
+        # recurse on left side, then right side, then finished, so return root
 
 # - Max Depth of Binary Tree - 🟢
 # Recursive DFS:
@@ -464,7 +464,7 @@
         # call sameTree with root & subRoot, if True: return True
         # recurse with root.left & subRoot and root.right & subRoot, return True if either returns True
 
-# - Lowest Common Ancestor of a Binary Search Tree - 🟢
+# - Lowest Common Ancestor of a Binary Search Tree - 🟠
 # Recursive Soln:
         # use that root is common ancestor of all nodes in BST, start there
         # the LCA is where p & q split into L & R subtrees (smaller & larger than curr)
@@ -473,6 +473,27 @@
         #  moving curr left if both p & q are > curr
         #  moving curr right if both p & q are < curr
         #  else: return curr, have found split
+
+# - Binary Tree Level Order Traversal - 🟠
+# BFS Soln:
+        # create a fifo queue (collections.deque), & result array
+        # add root to queue
+        # loop while there's still elems in queue:
+        #  create level array, get curr_length of queue,
+        #  loop through length, popping from left of queue, 
+        #   append to level_array, append children to q
+        #  if nodes in level, add to result array
+        # return result array
+
+# - Binary Tree Right Side View - 🟠
+# Iterative BFS Soln:
+        # create a result array, to hold node values on the right side
+        # create a deque to hold nodes, level by level
+        # while q: get current level length
+        #  iterate through level, 
+        #   popping off each elem, add any children of theirs
+        #   once reach last elem on that level (rightmost), add val to list
+        # return result list
 
 
 

@@ -505,6 +505,20 @@
         #  return res
         # call dfs with root & root.val
 
+# - Kth Smallest Element in a BST - 🟠
+# Recursive DFS Soln:
+        # create a sorted array to hold sorted elems
+        # recurse dfs in-order through the tree to add elems in order to the array
+        # return kth elem in arr
+# Iterative Stack Soln:
+        # create a stack, & curr pointer to root
+        # loop while elems in stack or curr
+        #  while curr is not a null node, 
+        #   add curr to the stack & go left, going as left as possible
+        #  pop smallesst elem from stack, hold in curr
+        #  decrement k, & check if k == 0: reached kth: return curr.val
+        #  otherwise, then go right, setting curr to curr.right
+
 
 
 # 🔲 --- Heap / Priority Queue ---
@@ -523,7 +537,41 @@
         # create a maxHeap from stones (in Python, use minHeap with neg vals)
         # while 2+ stones in heap, pop off top 2 heaviest stones, smash them calc 
         # if there's a resulting stone, add end_stone back into heap
-        # when 1 or 0 stones left, return that stone
+        # when 1 or 0 stones left, return that stone or 0
+
+# - K Closest Points to Origin - 🟠
+# MinHeap Soln:
+        # create a heap arr
+        # iterate through points:
+        #  creating a tuple for each, holding dist from center (to sort by), & point coords
+        #  add tuple to heap
+        # create result arr, for k times, pop smallest dist tuple from heap
+        # add point coord to result array, return result array @ end
+
+# - Kth Largest Element in an Array - 🟠
+# Sorting Soln: - O(nLogn)
+# MinHeap Soln: - O(n)
+        # make a min_heap (heapq.heapify(all neg nums)) with all (neg) elems in it
+        # pop k-1 times, top of stack will then be kth largest (remember to swap signs back)
+# Quick Select: - Average: O(n), Worst: O(n^2)
+        # reassign k in terms of kth smallest elem
+        # define quickSelect(l, r): to randomly pick a pivot elem & sort larger/smaller than it
+        #  set pivot elem to rightmost elem, p=swap_to_point leftmost elem
+        #  iterate up to pivot point, comparing elems to pivot
+        #   if elem smaller than pivot, move to left part & increase p
+        #  swap pivot into p spot, separating l & r sides
+        #  check if p == k or which side to keep looking @
+
+# - Task Scheduler - 🟠
+# MaxHeap Soln:
+        # find frequency of each different task, add to maxHeap to always get most freq
+        # create time var 
+        # create deque for tracking when tasks have timed_back_in, hold [freq, valid_time]
+        # loop while maxHeap & deque:
+        #  increment time counter
+        #  if maxHeap: heappop + 1 to process task, if not 0: add it to deque with [freq, time+n]
+        #  if deque and deque[0][time] equals curr time: pop from deque & add freq back to maxHeap
+        # when loop done (all tasks processed & out of queue): return time
 
 
 

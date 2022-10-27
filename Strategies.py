@@ -94,6 +94,16 @@
         # save length if it's new max
         # @ end, return longest_seq
 
+# - Squares of a Sorted Array - 🟢 - Quastor
+# 2 Pointer Soln:
+        # edge case: len is 1, just return arr with square of elem
+        # create a list to hold squares
+        # find separating point of sorted array, between neg & pos, make left/right index vars
+        # while l & r haven't run off either end: compare abs val of nums[l & r] to find smaller num
+        # append the square of it to square_list
+        # once done with comparisons, add rest of whatever left in other list
+        # return square_list
+
 
 
 # 🔲 --- Two Pointers ---
@@ -392,6 +402,13 @@
         # put: check if key exists, if so remove it before adding new val
         #  insert new key & new node into LL
         #  check if exceeds capacity: if so: remove LRU (left) by removing node from LL & deleting from cache
+
+# - Rotate List - 🟠 - Quastor
+        # iterate through LL to get length
+        # once reach end, link the last node to the head to create a cycle
+        # find amount needed to rotate: len - (k % len)
+        # iterate through that many times, hold next node as newHead, break cycle with newTail->None
+        # return newHead
 
 
 

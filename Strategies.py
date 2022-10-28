@@ -103,6 +103,9 @@
         # append the square of it to square_list
         # once done with comparisons, add rest of whatever left in other list
         # return square_list
+# 2 Pointer Soln_2:
+        # start 2 pointers @ either end, & move inwards, comparing squares & adding largest
+        # will build up square_list largest->smallest, reverse it & return 
 
 
 
@@ -589,6 +592,34 @@
         #  if maxHeap: heappop + 1 to process task, if not 0: add it to deque with [freq, time+n]
         #  if deque and deque[0][time] equals curr time: pop from deque & add freq back to maxHeap
         # when loop done (all tasks processed & out of queue): return time
+
+# - Design Twitter - 🟠
+# MinHeap Soln:
+        # __init__()
+        #  create count var, as timestamp helper, start @ 0 & decrement each tweet
+        #  create followMap defaultdict(set) of user_ids: HashSet of followee_ids, O(1) add/discard
+        #  create tweetMap defaultdict(list) of user_ids: List of [count, tweet_ids]
+        # follow()
+        #  add followeeId to set mapped to followerId
+        # unfollow()
+        #  discard followeeId to set mapped to followerId
+        # postTweet()
+        #  append [count, tweetId] to a userId's list in tweetMap, decrement count for next one
+        # getNewsFeed()
+        #  create a result array to hold 10 most recent tweetIds to return (most->least recent)
+        #  create an array to be made into a minHeap to help get most recent tweets
+        #  add a user to their own followMap
+        #  go through a users followees, get from followMap[userId]
+        #   ensure the followee has any tweets, check in the tweetMap, then:
+        #    get index of their most recent tweet, last elem in tweetMap list
+        #    use index to get its count, tweetId 
+        #    add list of tweet things to heap [count, tweetId, followeeId, index-1]
+        #  once all 10 tweets added, heapify the minHeap
+        #  while elems still in minHeap and res list doesn't have 10 tweets yet
+        #   heappop the things from minHeap
+        #   append the tweetId to res
+        #   if that user has more tweets, get it, & heappush it to minHeap
+        # return res array with 10 tweets
 
 
 

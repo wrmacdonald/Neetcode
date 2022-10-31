@@ -628,26 +628,52 @@
 # - Subsets - 🟠
 # Backtracking Soln:
         # create result array to hold each found subset
-        # create subset array
-        # create dfs func to call with index
-        # basically iterate through nums array until i >= len(nums)
-        # append copy of subset to result
-        # recursively call dfs with 2 decisions:
-        # decision TO add nums[i] 
-        # decision NOT TO add nums[i]
+        # define dfs func to call with index, subset
+        #  BC: check if index >= len(nums): if so: append copy of subset to result & return
+        #  recursively call dfs with 2 decisions:
+        #  decision TO add nums[i], append to subset & call dfs @ next index
+        #  decision NOT TO add nums[i], pop from subset & call dfs @ next index
+        # call dfs with 0 index, & [] subset array (to hold current subset being built up)
+        # return result array
+
+# - Subsets II - 🟠
+# Backtracking Soln:
+        # create result array to hold each found subset
+        # sort the nums array to make it easier to skip duplicate nums
+        # define dfs func to call with index, subset
+        #  BC: check if index >= len(nums): if so: append copy of subset to result & return
+        #  recursively call dfs with 2 decisions:
+        #  decision TO add nums[i], append to subset & call dfs @ next index
+        #  decision NOT TO add nums[i] nor same num @ nums[i] elsewhere in nums,
+        #  pop from subset
+        #  move index down enough to next different num, call dfs using that index
+        # call dfs with 0 index, & [] subset array (to hold current subset being built up)
         # return result array
 
 # - Combination Sum - 🟠
 # Backtracking Soln:
         # Decision: add element or not
-        # create result array to hold each found combination
-        # create dfs func to call with (index, curr_combo, curr_total)
-        # BC1: reach solution - append copy of curr to result
-        # BC2: curr pass target or reach end of list: exit
-        # Decision: Add num, & recursively call dfs
-        # Decision: Don't add num, & recursively call dfs
+        # create result array to hold copy of each found combination
+        # define dfs func to call with (index, curr_combo, curr_total)
+        #  BC1: reached solution - append copy of curr_combo to result, exit
+        #  BC2: curr_combo passed target or reached end of list: exit
+        #  Decision: append num @ index to curr_combo, & recursively call dfs
+        #  Decision: Don't add num, recursively call dfs moving index on
+        # start dfs with index=0, curr_combo=[], & curr_total=0
         # return result array
 
+# - Combination Sum II - 🟠
+# Backtracking Soln: O(2^n)
+        # create result array to hold copy of each found combination
+        # sort the candidates array to make it easier to skip duplicate nums to not include
+        # define dfs func to call with (index, curr_combo, curr_total)
+        #  BC1: reached solution - append copy of curr_combo to result, exit
+        #  BC2: curr_combo passed target or reached end of list: exit
+        #  Decision: append num @ index to curr_combo, & recursively call dfs on next index
+        #  Decision: Don't add same num, move index down until next num in candidates is different 
+        #  recursively call dfs moving index on
+        # start dfs with index=0, curr_combo=[], & curr_total=0
+        # return result array
 
 
 

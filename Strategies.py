@@ -675,10 +675,62 @@
         # start dfs with index=0, curr_combo=[], & curr_total=0
         # return result array
 
+# - Word Search - 🟠
+# Backtracking Soln:
+        # create row, col vars, & path set to hold valid found board positions 
+        # define dfs func to call with (r,c,i) current row,col to check, and index in word to check with
+        #  BC: found full word (index is len of word): return True
+        #  BC: not correct letter (r,c off board, or not correct letter, or (r,c) in path): return False
+        #  Recurse: found matching letter (word[i] @ (r,c)), recurse on adjacent board tiles
+        #   add (r,c) to path, then recurse with 4 positions & increase i, save to res var
+        #   remove (r,c) from path, return res
+        # check from all starting positions, if any are True: return True
+        # if @ end, return False
+
+# - Palindrome Partitioning - 🟠
+# Backtracking Soln:
+        # create res array, & curr_part array to hold current partition
+        # define dfs func to call with index checking in word
+        #  BC: reached end (i passed end of word): valid partition, append part to res
+        #  Recurse: 
+        #   iterate through from i to end of s, use j, check if section from i-j is a pali:
+        #    if so: append it to path & recurse dfs from j+1
+        #    clean up by removing pali from path
+        # call dfs with i=0, return res array
+        # define isPalindrome func, comparing either ends & while match: move in
+
+# - Letter Combinations of a Phone Number - 🟠
+# Backtracking Soln:
+        # create res array, & digitToChar hashMap to hold num:letter mapping
+        # define dfs func to call with index & current built up string
+        #  BC: built up valid string (len of i same as currStr): append currStr to res, return
+        #  Recurse: 
+        #   iterate through chars @ i digit: recursing with i+1 & curStr+char
+        # call dfs with i=0 & empty str, return res array
 
 
 
+# 🔲 --- Graphs ---
 
+# - Number of Islands - 🟠
+# BFS Soln:
+        # get row, col dimensions of the graph
+        # create a visited set to hold (r,c) tuples of land visited
+        # create island count var to return at end
+        # define bfs func, take in starting r,c of an island
+        #  create a queue to hold nodes & iteratively bfs through island
+        #  append the starting node to the queue
+        #  create a directions array to hold tuples of 4 directions
+        #  while nodes in queue: 
+        #   popleft the closest node in the queue
+        #   for direction in directions:
+        #    check if node in bounds and land and not visited:
+        #     append it to queue & add it to visited set
+        #
+        # iterate through all nodes, nested rows & cols:
+        #   if water: do nothing, if land ('1' and not in visited):
+        #    run bfs from that node to mark whole island as visited & increment island count
+        # return island count
 
 
 

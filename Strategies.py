@@ -732,8 +732,40 @@
         #    run bfs from that node to mark whole island as visited & increment island count
         # return island count
 
+# - Clone Graph - 🟠
+# DFS recursive Soln:
+        # create hashMap to hold oldNode: newNode
+        # define dfs function, take in node
+        #  check if node has already been cloned in hashMap: return node
+        #  if not: create copy of node, add it to hashMap
+        #  iterate through neighbor nodes: calling dfs on each neighbor & appending to copyNode.neighbors
+        #  return copyNode
+        # if node: return dfs(node), else: return None
 
+# - Max Area of Island - 🟠
+# My BFS recursive Soln:
+        # create visited set to hold explored nodes
+        # create max_area var to hold largest island area
+        # define bfs function, take in r,c for island to explore
+        #  create a queue, appending start coord to it, local area
+        #  while queue: popleft() & check if island extends in any direction (in range, land, not visited)
+        #   visit, add to queue, update area
+        #  update max_area if local island area is greater
+        # iterate through each coord in grid, call bfs() when find unexplored island
+        # return max_area
 
+# - Pacific Atlantic Water Flow - 🟠
+# DFS recursive Soln:
+        # work backwards from ocean-adjacent land, to find all coords accessible from each ocean, then return overlap
+        # create pac & atl sets to hold coords that can reach either ocean
+        # define dfs func, take in r,c to search from, visited set, & prevHeight
+        #  BC: if visited, out of bounds, or less than prevHeight: return
+        #  otherwise: visit curr & recurse on all 4 neighbors
+        # loop through cols, call dfs for each coord on top & bottom side, with correct set
+        # loop through rows, call dfs for each coord on R & L side, with correct set
+        # create result array, iterate through all coords, adding to result if they're in both pac & atl sets
+        # return result array
+        
 
 
 

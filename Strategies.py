@@ -765,9 +765,28 @@
         # loop through rows, call dfs for each coord on R & L side, with correct set
         # create result array, iterate through all coords, adding to result if they're in both pac & atl sets
         # return result array
-        
 
+# - Surrounded Regions - 🟠
+# BFS Soln with queue: - Slow
+# Reverse Thinking Soln:
+        # capture everything except unsurrounded regions (O's connected to the border)
+        # iterate through border cells, if it's an O, run dfs on it, swapping O->T
+        # define dfs func, take in r,c for O to start at
+        #  BC: if out of bounds or not an O, return
+        #  swap the O->T and recurse on 4 neighbors
+        # iterate through all cells, swapping all O's to X's
+        # iterate through all cells, swapping all T's back to O's
 
+# - Rotting Oranges - 🟠
+# BFS Soln with queue: 
+        # create a q (deque) to bfs, hold rotten oranges (2) to go through & spread to fresh (1)
+        # create rows, cols, fresh_count, minute
+        # iterate through gris, counting 1s in fresh_count & append starting 2s to q
+        # while q & still fresh oranges left:
+        #  iterate through all oranges currently in q, by getting len(q)
+        #   popleft from q, check 4 neighbors from rotten, if 1: turn rotten, add to queue & decrement fresh
+        #  increment minute 
+        # return minute if no fresh left else -1
 
 
 

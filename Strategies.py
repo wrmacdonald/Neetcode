@@ -788,6 +788,51 @@
         #  increment minute 
         # return minute if no fresh left else -1
 
+# - Course Schedule - 🟠
+# DFS Soln:
+        # create an adjacencyList of prerecs for each course {crs: [pre crs],}
+        # create a visit set to track visited already
+        # define dfs func, take in crs currently visiting
+        #  check for cycle: crs in visit: return False
+        #  check for no prereqs, can visit: adjList for crs == []: return True
+        #  add crs to visit set
+        #  iterate through a crs' prereqs using adjList: 
+        #   calling dfs on each prereq, checking for cycle (in visit) each time, returning False if found
+        #  remove crs from visit, set adjList to [] to show it's been explored fully, return True
+        # iterate through all courses, calling dfs for each, but check if any return False -> a cycle
+        #  if so, return False immediately, there's a cycle, otherwise let finish & return True @ end, it's possible
+
+
+# - Course Schedule II - 🟠
+# DFS Soln:
+        # create an adjacencyList of prerecs for each course {crs: [pre crs],}
+        # create an output array to build up the ordering
+        # create a visit set to track visited already
+        # create a cycle set to track whether there's a cycle
+        # define dfs func, take in crs currently visiting
+        #  check for cycle: crs in cycle: return False
+        #  check for already visited: crs in visit: return True
+        #  add crs to cycle
+        #  iterate through a crs' prereqs using adjList: 
+        #   calling dfs on each prereq, checking for cycle each time, returning False if found
+        #  remove crs from cycle
+        #  add crs to visit, append crs to output, & return True
+        # iterate through all courses, calling dfs for each, but check if any return False -> a cycle
+        #  if so, return an empty list immediately, otherwise let finish & return output arr @ end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

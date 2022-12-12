@@ -802,7 +802,6 @@
         # iterate through all courses, calling dfs for each, but check if any return False -> a cycle
         #  if so, return False immediately, there's a cycle, otherwise let finish & return True @ end, it's possible
 
-
 # - Course Schedule II - 🟠
 # DFS Soln:
         # create an adjacencyList of prerecs for each course {crs: [pre crs],}
@@ -822,7 +821,58 @@
 
 
 
+# 🔲 --- 1-D Dynamic Programming ---
 
+# - Climbing Stairs - 🟢
+# BF Soln: Too slow
+        # define climb func, take in n
+        #  BC1: if n == 1: return 1 way
+        #  BC2: if n == 2: return 2 ways
+        #  otherwise: return recursive calls to climb(n-1) + climb(n-2)
+        # call climb with n stairs
+# Memoization Soln:
+        # Same as above, but first define a memo dict
+        # add 1:1 & 2:2 to memo
+        # then in climb, check if n in memo before calculating (& saving res in memo)
+# DP Soln:
+        # create 2 vars to hold prev 2 numbers (one, two), initially set to 1, 1
+        # iterate n-1 times: updating one = (one + two) and two to what one had been
+        # then return one after loop, basically fibonacii sequence
+
+# - Min Cost Climbing Stairs - 🟢
+# DP Soln:
+        # start @ end, working backwards, minimizing cost
+        # append 0 to end of cost arr
+        # iterate backwards through cost, setting cost[i] to min of (cost[i+1] or cost[i+2]) PLUS cost[i]
+        # return the min of costs calculated in cost[0] or cost[1]
+
+# - House Robber - 🟠
+# DP Soln - Iterative with N vars (bottom-up)
+        # imagine nums = [n1, n2, curr_n, ...]
+        # create 2 vars, n1 & n2 = 0
+        # iterate through nums: 
+        #  calc the max_n (that aren't adjacent) with max of n1 + curr_n or just n2
+        #  update n1 to n2, and n2 to max_n
+        # return n2
+
+# - House Robber II - 🟠
+# DP Soln - Iterative with N vars (bottom-up)
+        # use House Robber I soln as a helper function, 
+        # call it with 2 slices of nums, excluding the first elem & last elem, since they're adjacent
+        # (also include nums[0] in max calc incase nums has only 1 elem)
+
+# - Longest Palindromic Substring - 🟠
+# DP Soln:
+        # create 2 vars, res to hold palindrome result string, & resLen to hold its length
+        # iterate through s, checking each elem & expanding out from it (odd len) or out from two elems (even len) to check if pali
+        #  if any found are longer than current resLen: save it
+        #  check odd len: 
+        #   set l & r pointers both to i, while they're inbounds & elem @ l&r index are equal: check longer than current pali: if so save it
+        #   then decrement l & increment r
+        #  check even len: 
+        #   set l & r pointers to i & i+1, while they're inbounds & elem @ l&r index are equal: check longer than current pali: if so save it
+        #   then decrement l & increment r
+        # return res string
 
 
 

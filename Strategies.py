@@ -107,6 +107,13 @@
         # start 2 pointers @ either end, & move inwards, comparing squares & adding largest
         # will build up square_list largest->smallest, reverse it & return 
 
+# - Is Subsequence - 🟢
+# ~2 Pointer Soln:
+        # s_i pointer start @ beginning of s
+        # short circuit an empty s string: return True
+        # iterate through t, when find elem @ s_i: increment s_i
+        #  when s_i reaches end of s, have found full subseq: return True
+        # otherwise: return False 
 
 
 # 🔲 --- Two Pointers ---

@@ -883,7 +883,19 @@
 
 
 
+# 🔲 --- Greedy ---
 
+# - Maximum Subarray - 🟠
+# BF Soln: Too slow
+        # just going through & calc each sum, saving max
+# Sliding window Soln: O(n)
+        # set maxSum to first elem
+        # set curSum to 0, the prefix, if it ever starts neg, reset it to 0
+        #  iterate through all nums, as n
+        #  check if curSum is neg, reset to 0 if so. meaning full prefix was neg & will not maximize soln
+        #  add current n to curSum
+        #  check & update maxSum if found new max
+        # return maxSum
 
 
 

@@ -897,6 +897,13 @@
         #  check & update maxSum if found new max
         # return maxSum
 
+# - Jump Game - 🟠
+# Shift goalpost Soln:
+        # set goal to the end i
+        # iterate backwards through nums indices, curr_i
+        #  if curr_i + elem @ curr_i >= the goal: move the goal to i, if start can reach here it can reach the end
+        # return True if the goal has reached beginning index 0, otherwise not possible: False
+
 
 
 

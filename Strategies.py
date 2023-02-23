@@ -906,6 +906,68 @@
 
 
 
+# 🔲 --- Intervals ---
+
+# - Insert Interval - 🟠
+# Build up new arr Soln:
+        # make new_arr to build up
+        # iterate through intervals with i
+        #  if NewInterval_end less than i_start: no overlap, just insert it to new_arr
+        #   return new_arr + slice of rest of intervals array 
+        #  elif NewInterval_start greater than i_end: no overlap, just continue, adding i to new_arr
+        #  else: there's overlap: update NewInterval with min(starts) & max(ends)
+        # append newInterval if got to the end without appending it
+        # return new_arr
+
+# - Merge Intervals - 🟠
+# Build up new arr Soln:
+        # make new_arr to build up answer
+        # sort intervals arr, key = start
+        # append the first interval to new_arr
+        # iterate through rest of intervals:
+        #  get the last_end from new_arr
+        #  if i_start overlaps with last_end: merge them by updating end of last interval in new_arr to whatever max is
+        #  if no overlap: append i interval to new_arr
+        # return new_arr
+
+# - Non-overlapping Intervals - 🟠
+# Soln:
+        # Sort by start, & then end
+        # make result var, set = 0, return it at end
+        # set prev_end var to end of first interval
+        # iterate through rest of intervals:
+        #  check if overlapping (i_start >= prev_end): 
+        #   if not: move up prev_end to i_end
+        #   if overlapping: increment res, & set prev_end to min(i_end, prev_end)
+        # return res
+
+# - Meeting Rooms - 🟢
+# Soln:
+        # Sort by start vals
+        # iterate through intervals[1:], getting i-1 & i intervals
+        #  check if i.start < i-1.end: if ever: return False, there's an overlap
+        # if reach end: return True, no overlaps
+
+# - Meeting Rooms II - 🟠
+# Soln: 
+        # create 2 new arrs, all_starts & all_ends, that are both sorted
+        # create count & max_count vars, starting @ 0
+        # create start_i & end_i pointer vars, starting @ 0
+        # while s_i has not reached end of start array: 
+        #  check if all_starts[s_i] < all_ends[e_i] (a new meeting started):
+        #   increment s_i & count
+        #  otherwise (a meeting ended):
+        #   increment e_i & decrement count
+        #  maybe update max_count
+        # return max_count
+
+
+
+
+
+
+
+
 
 
 

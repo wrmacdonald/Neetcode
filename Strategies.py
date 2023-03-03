@@ -548,6 +548,33 @@
 
 
 
+# 🔲 --- Tries ---
+
+# - Imprement Trie Prefix Tree - 🟠
+# Soln: 
+        # create a TrieNode() class
+        #  initialize with self.children = empty HashMap to add letters into
+        #  initialize with self.endOfWord = bool
+        # Trie() class
+        #  initialize with self.root = TrieNode()
+        # 
+        # insert(word)
+        #  set curr to self.root
+        #  iterate through char in word: 
+        #   if char doesn't exist in curr.children: create it
+        #   set curr to curr.children[c], moving to that char node
+        #  when @ last char, set curr.endOfWord to True, marking it as end of word
+        # 
+        # search(word)
+        #  same traversing as insert above, but if char not found, return False
+        #  return check @ last char whether it's the end of word
+        # 
+        # startsWith(prefix)
+        #  same traversing as insert above, but if char not found, return False
+        #  return True if reach last char in prefix
+
+
+
 # 🔲 --- Heap / Priority Queue ---
 
 # - Kth Largest Element in a Stream - 🟢
@@ -963,6 +990,50 @@
 
 
 
+# 🔲 --- Bit Manipulation ---
+
+# - Number of 1 Bits - 🟢
+# Slower Soln:
+        # while n: res += n % 2, if 1, inc res
+        #  n = n >> 1, bit shift to the right by 1
+# Faster Soln:
+        # while n: n = n & (n-1), & inc res, this will only iterate # of 1's in n times
+
+# - Counting Bits - 🟢
+# BF Soln:
+        # iterate through 0 to n+1, with i:
+        #  counting 1's in i with (i = i & (i-1) trick that counts 1's in bin rep of an int)
+        #  append each res to ans_arr
+# DP Soln:
+        # set up dp arr with all 0's, len n+1
+        # set up offset = 1
+        # iterate from 1 to n+1:
+        #  if offset has reached next increment (most significant bit has moved up): update it
+        #  set dp[i] to 1 + dp[i - offset], (1 for MSB and rest dp already counted)
+        # return dp array
+
+# - Reverse Bits - 🟢
+# Soln:
+        # set a result 32 bit int to 0
+        # iterate through each position in it (32 times), with i:
+        #  get the bit at the ith pos in n, using '& 1' operation
+        #  set reverse pos in res to the bit that was found, using res | (bit shifted over appro positions)
+        # return res
+
+# - Missing Number - 🟢
+# Sum Soln:
+        # set res to length of nums
+        # iterate to len of nums, using i
+        #  update res with i and nums[i], (sum of all i's, & all nums)
+        # return res, what's left will be the one num that wasn't in nums, but was in the range 0-n
+# XOR Soln:
+        # set result to 0
+        # iterate through nums, XORing res with num
+        # then iterate through range len(nums)+1, XORing res with i
+        # return res, XOR zeros out pairs, regardless of order
+# HashMap Soln:
+        # create a hashmap with all the nums from 0-n
+        # go through nums checking them off, return the one that wasn't found
 
 
 
